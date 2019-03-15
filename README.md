@@ -1,2 +1,2 @@
 # code4kids
-Some Code for Kids
+First you need pygame

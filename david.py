@@ -3,7 +3,7 @@
 from c4kapi import *
 import random as r
 cls()
-anime(3)
+anime(5)
 nb = r.randint(0,10)
 print(nb)
 txt("J'ai choisi un nombre entre 0 et 10")

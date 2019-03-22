@@ -3,11 +3,12 @@ import socket as sk
 import sys , time
 import os, os.path
 
+adiv = 2;
 pg.init();
-mScreen = pg.display.set_mode((1280, 720))
+mScreen = pg.display.set_mode((400, 300))
 pg.display.set_caption("Code for Kids")
 pg.font.init()
-myfont = pg.font.SysFont('Comic Sans MS', 30)
+myfont = pg.font.SysFont('Comic Sans MS', 18)
 txt = myfont.render('Start', False, (0, 0, 0))
 
 framepos = 0
@@ -45,11 +46,11 @@ anime["12"] = {    "start" : 2135,    "stop"  :2180 , "dir" : 1}
 curentAnime = "GirlRespire";
 
 bg = pg.image.load("./data/backgrounds/fnd1.png");
-bg = pg.transform.scale(bg, (1280, 720))
+bg = pg.transform.scale(bg, (int(1280/adiv), int(720/adiv)))
 sprites = {};
 clock = pg.time.Clock()
 displayText = "";
-bubble = pg.transform.scale( pg.image.load("./data/Objects/bubble.png"), (1280, 720))
+bubble = pg.transform.scale( pg.image.load("./data/Objects/bubble.png"), (int(1280/adiv), int(720/adiv)))
 doInput = False
 inputTxt = "";
 promptTxt = ">";
@@ -92,18 +93,18 @@ while True:
     if not (framepos in sprites):
         sprites[framepos] = pg.image.load("./data/sprites/fornite."+("000000000"+str(framepos))[-6:]+".png")
 
-    mScreen.blit( sprites[framepos], (0, 0))
-    txt = myfont.render('{0} - {1}'.format(curentAnime,framepos), True, (0, 0, 0))
-    mScreen.blit(txt, (0, 0))
+    mScreen.blit( sprites[framepos], (-130, 10))
+    #txt = myfont.render('{0} - {1}'.format(curentAnime,framepos), True, (0, 0, 0))
+    #mScreen.blit(txt, (0, 0))
 
-    ox = 765
-    oy = 90;
+    ox = 160
+    oy = 20;
     x = 0;
     y = 0;
-    mx = 400;
+    mx = int(400/adiv);
 
     if displayText != "" :
-        mScreen.blit(bubble,(0,0))
+        mScreen.blit(bubble,(-220,-20))
 
         for ww in displayText.replace("\n"," CRLF ").split():
             word = myfont.render(ww+" ",True,(0,0,0));
